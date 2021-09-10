@@ -10,16 +10,8 @@
 
     <TextView
         android:id="@+id/textPole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00EAC482"
-        android:backgroundTintMode="add"
         android:text="@string/my_name"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#209C71"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/text_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,14 +20,8 @@
         app:layout_constraintVertical_bias="0.101" />
 
     <TableLayout
-
         android:id="@+id/tableLayout"
-        android:layout_width="360dp"
-        android:layout_height="515dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="119dp"
+        style="@style/table_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,60 +33,36 @@
 
             <Button
                 android:id="@+id/btn1"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
+                style="@style/top_btn_style"
                 android:text="@string/btn_1"
-                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole" />
             <Button
                 android:id="@+id/btn2"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/top_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_2"
-                android:textSize="24sp"/>
+                android:text="@string/btn_2" />
             <Button
                 android:id="@+id/btn3"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/top_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_3"
-                android:textSize="24sp"/>
+                android:text="@string/btn_3" />
             <Button
                 android:id="@+id/plus"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/top_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/plus"
-                android:textSize="24sp"/>
+                android:text="@string/plus" />
         </TableRow>
 
         <TableRow
@@ -109,60 +71,36 @@
 
             <Button
                 android:id="@+id/btn4"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_4"
-                android:textSize="24sp"/>
+                android:text="@string/btn_4" />
             <Button
                 android:id="@+id/btn5"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_5"
-                android:textSize="24sp"/>
+                android:text="@string/btn_5" />
             <Button
                 android:id="@+id/btn6"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_6"
-                android:textSize="24sp"/>
+                android:text="@string/btn_6" />
             <Button
                 android:id="@+id/minus"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/minus"
-                android:textSize="24sp"/>
+                android:text="@string/minus" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -170,60 +108,36 @@
 
             <Button
                 android:id="@+id/btn7"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_7"
-                android:textSize="24sp"/>
+                android:text="@string/btn_7" />
             <Button
                 android:id="@+id/btn8"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_8"
-                android:textSize="24sp"/>
+                android:text="@string/btn_8" />
             <Button
                 android:id="@+id/btn9"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_9"
-                android:textSize="24sp"/>
+                android:text="@string/btn_9" />
             <Button
                 android:id="@+id/multiply"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="5dp"
+                style="@style/btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/multiply"
-                android:textSize="24sp"/>
+                android:text="@string/multiply" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -231,60 +145,36 @@
 
             <Button
                 android:id="@+id/clear"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="5dp"
+                style="@style/bottom_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/clear"
-                android:textSize="24sp"/>
+                android:text="@string/clear" />
             <Button
                 android:id="@+id/btn0"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="5dp"
+                style="@style/bottom_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/btn_0"
-                android:textSize="24sp"/>
+                android:text="@string/btn_0" />
             <Button
                 android:id="@+id/equals"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="5dp"
+                style="@style/bottom_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/equals"
-                android:textSize="24sp"/>
+                android:text="@string/equals" />
             <Button
                 android:id="@+id/divide"
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="5dp"
+                style="@style/bottom_btn_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPole"
-                android:text="@string/divide"
-                android:textSize="24sp"/>
+                android:text="@string/divide" />
         </TableRow>
     </TableLayout>
 
