@@ -1,4 +1,4 @@
-package com.example.lab1;
+package com.example.lab2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 double prev = result;
                 String newText = (String) textPole.getText();
-                String[] parts = newText.split("\\W");
+                String[] parts = newText.split("[+/*-]+");
                 if (parts.length == 1) {
                     text = (String) parts[0];
                     textPole.setText(text);
