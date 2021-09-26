@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
             plus, minus, divide, multiply, equals, clear;
     TextView textPole;
     String text = "";
-    Integer result = 0;
+    Double result = 0.0;
     int type;
 
     @Override
@@ -121,72 +121,126 @@ public class MainActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result = Integer.valueOf((String) textPole.getText());
-                text = text + "+";
-                textPole.setText(text);
-                type = 1;
+                try {
+                    result = Double.parseDouble((String) textPole.getText());
+                    text = text + "+";
+                    textPole.setText(text);
+                    type = 1;
+                }
+                catch (Exception e){
+                    text = "Enter value first!";
+                    textPole.setText(text);
+                    text = "";
+                }
+
             }
         });
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result = Integer.valueOf((String) textPole.getText());
-                text = text + "-";
-                textPole.setText(text);
-                type = 2;
+                try {
+                    result = Double.parseDouble((String) textPole.getText());
+                    text = text + "-";
+                    textPole.setText(text);
+                    type = 2;
+                }
+                catch (Exception e){
+                    text = "Enter value first!";
+                    textPole.setText(text);
+                    text = "";
+                }
             }
         });
         divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result = Integer.valueOf((String) textPole.getText());
-                text = text + "/";
-                textPole.setText(text);
-                type = 3;
+                try {
+                    result = Double.parseDouble((String) textPole.getText());
+                    text = text + "/";
+                    textPole.setText(text);
+                    type = 3;
+                }
+                catch (Exception e){
+                    text = "Enter value first!";
+                    textPole.setText(text);
+                    text = "";
+                }
             }
         });
         multiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result = Integer.valueOf((String) textPole.getText());
-                text = text + "*";
-                textPole.setText(text);
-                type = 4;
+                try {
+                    result = Double.parseDouble((String) textPole.getText());
+                    text = text + "*";
+                    textPole.setText(text);
+                    type = 4;
+                }
+                catch (Exception e){
+                    text = "Enter value first!";
+                    textPole.setText(text);
+                    text = "";
+                }
             }
         });
         equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int prev = result;
+                double prev = result;
                 String newText = (String) textPole.getText();
                 String[] parts = newText.split("\\W");
-                result = Integer.valueOf(parts[1]);
-                switch (type){
-                    case 1: {
-                        result = prev + result;
-                    }
-                    case 2: {
-                        result = prev - result;
-                    }
-                    case 3: {
-                        if (result == 0){
-                            textPole.setText("Division to zero!");
-                        }
-                        else result = prev / result;
-                    }
-                    case 4: {
-                        result = prev * result;
-                    }
+                if (parts.length == 1) {
+                    text = (String) parts[0];
+                    textPole.setText(text);
+                    return;
                 }
-                text = (String)result.toString();
-                textPole.setText(text);
+                try{
+                    double secondValue = Double.parseDouble(parts[1]);
+                    System.out.println(prev);
+                    System.out.println(secondValue);
+                    switch (type){
+                        case 1: {
+                            result = prev + secondValue;
+                            break;
+                        }
+                        case 2: {
+                            result = prev - secondValue;
+                            break;
+                        }
+                        case 3: {
+                            if (secondValue == 0){
+                                textPole.setText("Division to zero!");
+                                text = "";
+                                return;
+                            }
+                            else result = prev / secondValue;
+                            break;
+                        }
+                        case 4: {
+                            result = prev * secondValue;
+                            break;
+                        }
+                        default: {
+                            System.out.println(result);
+                            break;
+                        }
+                    }
+                    text = Double.toString(result);
+                    textPole.setText(text);
+                }
+                catch (Exception e) {
+                    text = "Bad input";
+                    textPole.setText(text);
+                    text = "";
+                }
+
             }
         });
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 text = "";
-                result = 0;
+                result = 0.0;
                 textPole.setText(R.string.blank);
             }
         });
