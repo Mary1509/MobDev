@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">lab2</string>
+    <string name="first_number_text">Перше число</string>
+    <string name="second_number_text">Друге число</string>
+    <string name="operation_text">Операція</string>
+    <string name="result">Результат</string>
+    <string name="calc">Обрахувати</string>
+
+    <string-array name="operations">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+    </string-array>
 </resources>

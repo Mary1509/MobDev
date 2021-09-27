@@ -1,0 +1,5 @@
+<resources>
+    <style name="ButtonStyle">
+        <item name="backgroundTint">@color/yellow</item>
+    </style>
+</resources>
