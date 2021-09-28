@@ -17,17 +17,17 @@ public class MainActivity extends AppCompatActivity {
     Button submitBtn;
     String selectedOperation;
 
-    private String calculate (Integer num1, Integer num2, String operation) throws Exception {
+    private String calculate (Double num1, Double num2, String operation) {
         switch (operation) {
             case "+":
-                return Integer.toString(num1 + num2);
+                return Double.toString(num1 + num2);
             case "-":
-                return Integer.toString(num1 - num2);
+                return Double.toString(num1 - num2);
             case "/":
-                if (num2 != 0) return Integer.toString(num1 / num2);
-                else throw new Exception("Division to zero!");
+                if (num2 != 0) return Double.toString(num1 / num2);
+                else return "Division to zero!";
             case "*":
-                return Integer.toString(num1 * num2);
+                return Double.toString(num1 * num2);
             default:
                 return "";
         }
@@ -53,13 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
         submitBtn.setOnClickListener(view -> {
             selectedOperation = operationSpinner.getSelectedItem().toString();
-            Integer num1 = Integer.parseInt(et1.getText().toString());
-            Integer num2 = Integer.parseInt(et2.getText().toString());
-            try {
+            try{
+                Double num1 = Double.parseDouble(et1.getText().toString());
+                Double num2 = Double.parseDouble(et2.getText().toString());
                 result.setText(calculate(num1, num2, selectedOperation));
             }
             catch (Exception err) {
-                Toast.makeText(getApplicationContext(), err.toString() ,
+                Toast.makeText(getApplicationContext(),
+                        "Enter value first",
                         Toast.LENGTH_SHORT).show();
             }
         });
