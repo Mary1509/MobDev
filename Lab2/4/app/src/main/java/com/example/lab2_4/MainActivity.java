@@ -8,11 +8,14 @@ import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     Spinner[][] spinners;
+    int full = 0;
 
     private boolean isWinning(Spinner spinner){
         int i = 0, j = 0;
@@ -68,6 +71,28 @@ public class MainActivity extends AppCompatActivity {
         return flag;
     }
 
+    private boolean isFull(){
+        full = 0;
+        for (Spinner[] arr : spinners){
+            for (Spinner spin : arr){
+                if (spin.getSelectedItemPosition() != 0) full ++;
+            }
+        }
+        return full == 16;
+    }
+
+    private void restartGame(){
+        int i = 0, j;
+        while (i < 4){
+            j = 0;
+            while (j < 4) {
+                spinners[i][j].setSelection(0, true);
+                j++;
+            }
+            i++;
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +115,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         if (isWinning((Spinner) adapterView)) {
-                           System.out.println("WIn");
+                            Toast.makeText(getApplicationContext(),
+                                    String.format(Locale.UK, "%s won!!!",
+                                            adapterView.getSelectedItem().toString()),
+                                            Toast.LENGTH_LONG).show();
+                            restartGame();
+                        }
+                        else if (isFull()){
+                            Toast.makeText(getApplicationContext(),
+                                     "Friendship wins!!!",
+                                    Toast.LENGTH_LONG).show();
+                            restartGame();
                         }
                     }
 
