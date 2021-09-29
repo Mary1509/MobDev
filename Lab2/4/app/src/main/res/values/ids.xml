@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="d00" type="id"/>
+    <item name="d01" type="id"/>
+    <item name="d02" type="id"/>
+    <item name="d03" type="id"/>
+    <item name="d10" type="id"/>
+    <item name="d11" type="id"/>
+    <item name="d12" type="id"/>
+    <item name="d13" type="id"/>
+    <item name="d20" type="id"/>
+    <item name="d21" type="id"/>
+    <item name="d22" type="id"/>
+    <item name="d23" type="id"/>
+    <item name="d30" type="id"/>
+    <item name="d31" type="id"/>
+    <item name="d32" type="id"/>
+    <item name="d33" type="id"/>
+</resources>

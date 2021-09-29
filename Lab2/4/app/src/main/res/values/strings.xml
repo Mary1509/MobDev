@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TicTac Toe</string>
+    <string-array name="tic_tac">
+        <item> </item>
+        <item>X</item>
+        <item>O</item>
+    </string-array>
 </resources>

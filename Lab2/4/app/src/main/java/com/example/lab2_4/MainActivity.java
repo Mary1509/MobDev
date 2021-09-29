@@ -4,25 +4,105 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewParent;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    Spinner[][] spinners;
+
+    private boolean isWinning(Spinner spinner){
+        int i = 0, j = 0;
+        boolean flag = false;
+        if (!spinner.getSelectedItem().toString().equals(" ")){
+            while (i < 4 && !flag) {
+                if (spinners[i][0].getSelectedItem().toString()
+                        .equals(spinners[i][1].getSelectedItem().toString()) &&
+                        spinners[i][1].getSelectedItem().toString()
+                                .equals(spinners[i][2].getSelectedItem().toString()) &&
+                        spinners[i][2].getSelectedItem().toString()
+                                .equals(spinners[i][3].getSelectedItem().toString())) {
+                    if (!spinners[i][0].getSelectedItem().toString().equals(""))
+                    flag = true;
+                }
+                i++;
+            }
+            while (j < 4 && !flag) {
+                if (spinners[0][j].getSelectedItem().toString()
+                        .equals(spinners[1][j].getSelectedItem().toString()) &&
+                        spinners[1][j].getSelectedItem().toString()
+                                .equals(spinners[2][j].getSelectedItem().toString()) &&
+                        spinners[2][j].getSelectedItem().toString()
+                                .equals(spinners[3][j].getSelectedItem().toString()) &&
+                        !spinners[0][j].getSelectedItem().toString().equals("")) {
+                    flag = true;
+                }
+                j++;
+            }
+            if (!flag) {
+                if (spinners[0][0].getSelectedItem().toString()
+                        .equals(spinners[1][1].getSelectedItem().toString()) &&
+                        spinners[1][1].getSelectedItem().toString()
+                                .equals(spinners[2][2].getSelectedItem().toString()) &&
+                        spinners[2][2].getSelectedItem().toString()
+                                .equals(spinners[3][3].getSelectedItem().toString()) &&
+                        !spinners[0][0].getSelectedItem().toString().equals("")) {
+                    flag = true;
+                }
+            }
+            if (!flag) {
+                if (spinners[3][0].getSelectedItem().toString()
+                        .equals(spinners[2][1].getSelectedItem().toString()) &&
+                        spinners[2][1].getSelectedItem().toString()
+                                .equals(spinners[1][2].getSelectedItem().toString()) &&
+                        spinners[1][2].getSelectedItem().toString()
+                                .equals(spinners[0][3].getSelectedItem().toString()) &&
+                        !spinners[3][0].getSelectedItem().toString().equals("")) {
+                    flag = true;
+                }
+            }
+        }
+        return flag;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner[][] spinnerArray = new Spinner[4][4];
+        spinners = new Spinner[4][4];
         for (int i = 0; i < 4; i++){
             for (int j = 0; j < 4; j++){
-                int id = getResources().getIdentifier(String.format("d%s%d", i, j),
+                int id = getResources().getIdentifier(String.format(Locale.UK,"d%s%d", i, j),
                         "id",
                         getPackageName());
-                spinnerArray[i][j] = findViewById(id);
+                spinners[i][j] = findViewById(id);
+                ArrayAdapter<?> adapter = ArrayAdapter.createFromResource(this,
+                        R.array.tic_tac,
+                        android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinners[i][j].setAdapter(adapter);
+                spinners[i][j].setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        if (isWinning((Spinner) adapterView)) {
+                           System.out.println("WIn");
+                        }
+                    }
 
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
             }
         }
+
+
 
     }
 }
