@@ -26,39 +26,23 @@
             android:layout_height="match_parent">
 
             <Spinner
+                android:id="@id/d00"
+                style="@style/tic_tac_spinner"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d01"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d02"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
-                android:layout_width="102.5dp"
-                android:layout_height="87.25dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Spinner
-                android:layout_width="102.5dp"
-                android:layout_height="87.25dp" />
-
-            <Spinner
-                android:layout_width="102.5dp"
-                android:layout_height="87.25dp" />
-
-            <Spinner
-                android:layout_width="102.5dp"
-                android:layout_height="87.25dp" />
-
-            <Spinner
+                android:id="@id/d03"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
         </TableRow>
@@ -68,18 +52,23 @@
             android:layout_height="match_parent">
 
             <Spinner
+                android:id="@id/d10"
+                style="@style/tic_tac_spinner"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d11"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d12"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d13"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
         </TableRow>
@@ -89,18 +78,49 @@
             android:layout_height="match_parent">
 
             <Spinner
+                android:id="@id/d20"
+                style="@style/tic_tac_spinner"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d21"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d22"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
 
             <Spinner
+                android:id="@id/d23"
+                android:layout_width="102.5dp"
+                android:layout_height="87.25dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@id/d30"
+                style="@style/tic_tac_spinner"
+                android:layout_width="102.5dp"
+                android:layout_height="87.25dp" />
+
+            <Spinner
+                android:id="@id/d31"
+                android:layout_width="102.5dp"
+                android:layout_height="87.25dp" />
+
+            <Spinner
+                android:id="@id/d32"
+                android:layout_width="102.5dp"
+                android:layout_height="87.25dp" />
+
+            <Spinner
+                android:id="@id/d33"
                 android:layout_width="102.5dp"
                 android:layout_height="87.25dp" />
         </TableRow>

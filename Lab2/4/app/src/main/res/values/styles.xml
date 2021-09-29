@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="tic_tac_spinner">
-
+        <item name="background">@drawable/border</item>
     </style>
 </resources>
