@@ -26,34 +26,39 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in1 = new Intent();
-                in1.setClass(MainActivity.this, GerActivity.class);
+                if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .replace(R.id.fragmentContainerView, GerActivity.class, null)
+                    .commit();
+        }
 
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in2 = new Intent();
-                in2.setClass(MainActivity.this, SwitzActivity.class);
-                startActivity(in2);
+                if (savedInstanceState == null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainerView, SwitzActivity.class, null)
+                            .commit();
+                }
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in3 = new Intent();
-                in3.setClass(MainActivity.this, ItActivity.class);
-                startActivity(in3);
+                if (savedInstanceState == null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentContainerView, ItActivity.class, null)
+                            .commit();
+                }
             }
         });
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(R.id.fragment_container_view, GerActivity.class, null)
-                    .commit();
-        }
+//
 
     }
 }

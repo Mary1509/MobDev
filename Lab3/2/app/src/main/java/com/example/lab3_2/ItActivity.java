@@ -1,6 +1,8 @@
 package com.example.lab3_2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,33 +15,24 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ItActivity extends AppCompatActivity {
+public class ItActivity extends Fragment {
+
+    public ItActivity(){
+        super(R.layout.fragment_italy);
+    }
 
     Button back;
     TextView textView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_italy);
-
-        openText();
-        textView = findViewById(R.id.textView);
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        openText(view);
+        textView = view.findViewById(R.id.textView);
         textView.setMovementMethod(new ScrollingMovementMethod());
-
-        back = findViewById(R.id.button);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent main = new Intent();
-                main.setClass(ItActivity.this, MainActivity.class);
-                startActivity(main);
-            }
-        });
     }
-    public void openText(){
+    public void openText(View view){
 
-        TextView textView = findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.textView);
         InputStream fin = null;
         try  {
             fin = getResources().openRawResource(R.raw.italy);
@@ -48,16 +41,14 @@ public class ItActivity extends AppCompatActivity {
             String text = new String(bytes);
             textView.setText(text);
         } catch (IOException ex) {
-            Toast.makeText(this, ex.getMessage(),
-                    Toast.LENGTH_SHORT).show();
+            System.out.println(ex.getMessage());
         }
         finally {
             try {
                 fin.close();
             }
             catch (IOException ex){
-                Toast.makeText(this, ex.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                System.out.println(ex.getMessage());
             }
         }
 
