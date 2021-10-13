@@ -44,7 +44,7 @@ public class ItActivity extends AppCompatActivity {
         try  {
             fin = getResources().openRawResource(R.raw.italy);
             byte[] bytes = new byte[fin.available()];
-            int i = fin.read(bytes);
+            fin.read(bytes);
             String text = new String(bytes);
             textView.setText(text);
         } catch (IOException ex) {
