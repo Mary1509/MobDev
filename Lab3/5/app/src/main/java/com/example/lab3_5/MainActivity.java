@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.LinkedList;
-import java.util.Vector;
+import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,65 +23,86 @@ public class MainActivity extends AppCompatActivity {
 
     String searchUrl;
     int pos;
+    ListIterator<String> iterator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        browser=(WebView)findViewById(R.id.browser);
+        browser= findViewById(R.id.browser);
         browser.setWebViewClient(new WebViewClient());
         WebSettings webSettings = browser.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        search = (Button)findViewById(R.id.search_btn);
-        prev = (Button)findViewById(R.id.prev_btn);
-        next = (Button)findViewById(R.id.next_btn);
-        editText = (EditText)findViewById(R.id.editText);
+        search = findViewById(R.id.search_btn);
+        prev = findViewById(R.id.prev_btn);
+        next = findViewById(R.id.next_btn);
+        editText = findViewById(R.id.editText);
 
         history = new LinkedList<>();
+        iterator = history.listIterator();
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchUrl = editText.getText().toString();
-                history.addFirst(searchUrl);
-                browser.loadUrl(searchUrl);
+        search.setOnClickListener(v -> {
+            searchUrl = editText.getText().toString();
+            if (!searchUrl.contains("https://")){
+                searchUrl = "https://www.google.com/search?q="+searchUrl;
             }
+            history.addFirst(searchUrl);
+            browser.loadUrl(searchUrl);
+            pos = 0;
+            iterator = history.listIterator(0);
+
         });
 
-        prev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pos = history.indexOf(searchUrl);
-                if (pos == history.size()-1) {
-                    Toast.makeText(getApplicationContext(),
-                            "You are viewing the first page!",
-                            Toast.LENGTH_LONG).show();
-                }
-                else {
-                    String prevText = history.get(pos+1);
-                    browser.loadUrl(prevText);
-                    searchUrl = prevText;
-                }
+        prev.setOnClickListener(v -> {
+            if (iterator.hasNext()){
+                String prevText = iterator.next();
+                browser.loadUrl(prevText);
+                searchUrl = prevText;
             }
+            else {
+                Toast.makeText(getApplicationContext(),
+                        "You are viewing the first page!",
+                        Toast.LENGTH_LONG).show();
+            }
+//                if (pos != 0)
+//                    pos = history.indexOf(searchUrl);
+//                if (pos == history.size()-1) {
+//                    Toast.makeText(getApplicationContext(),
+//                            "You are viewing the first page!",
+//                            Toast.LENGTH_LONG).show();
+//                }
+//                else {
+//                    String prevText = history.get(pos+1);
+//                    browser.loadUrl(prevText);
+//                    searchUrl = prevText;
+//                }
         });
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pos = history.indexOf(searchUrl);
-                if (pos <= 0 ) {
-                    Toast.makeText(getApplicationContext(),
-                            "You are viewing the latest page!",
-                            Toast.LENGTH_LONG).show();
-                }
-                else {
-                    String nextText = history.get(pos-1);
-                    browser.loadUrl(nextText);
-                    searchUrl = nextText;
-                }
+        next.setOnClickListener(v -> {
+            if (iterator.hasPrevious()){
+                String nextText = iterator.previous();
+                browser.loadUrl(nextText);
+                searchUrl = nextText;
             }
+            else {
+                Toast.makeText(getApplicationContext(),
+                        "You are viewing the last page!",
+                        Toast.LENGTH_LONG).show();
+            }
+//                if (pos != 0)
+//                    pos = history.indexOf(searchUrl);
+//                if (pos <= 0 ) {
+//                    Toast.makeText(getApplicationContext(),
+//                            "You are viewing the latest page!",
+//                            Toast.LENGTH_LONG).show();
+//                }
+//                else {
+//                    String nextText = history.get(pos-1);
+//                    browser.loadUrl(nextText);
+//                    searchUrl = nextText;
+//                }
         });
 
 
