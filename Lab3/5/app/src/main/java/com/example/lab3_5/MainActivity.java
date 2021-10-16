@@ -66,18 +66,6 @@ public class MainActivity extends AppCompatActivity {
                         "You are viewing the first page!",
                         Toast.LENGTH_LONG).show();
             }
-//                if (pos != 0)
-//                    pos = history.indexOf(searchUrl);
-//                if (pos == history.size()-1) {
-//                    Toast.makeText(getApplicationContext(),
-//                            "You are viewing the first page!",
-//                            Toast.LENGTH_LONG).show();
-//                }
-//                else {
-//                    String prevText = history.get(pos+1);
-//                    browser.loadUrl(prevText);
-//                    searchUrl = prevText;
-//                }
         });
 
         next.setOnClickListener(v -> {
@@ -91,18 +79,6 @@ public class MainActivity extends AppCompatActivity {
                         "You are viewing the last page!",
                         Toast.LENGTH_LONG).show();
             }
-//                if (pos != 0)
-//                    pos = history.indexOf(searchUrl);
-//                if (pos <= 0 ) {
-//                    Toast.makeText(getApplicationContext(),
-//                            "You are viewing the latest page!",
-//                            Toast.LENGTH_LONG).show();
-//                }
-//                else {
-//                    String nextText = history.get(pos-1);
-//                    browser.loadUrl(nextText);
-//                    searchUrl = nextText;
-//                }
         });
 
 
