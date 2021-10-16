@@ -1,12 +1,3 @@
 <resources>
     <string name="app_name">lab3</string>
-    <string-array name="countries">
-        <item>germany</item>
-        <item>italy</item>
-        <item>switzerland</item>
-    </string-array>
-    <string name="germany">Germany</string>
-    <string name="italy">Italy</string>
-    <string name="switzerland">Switzerland</string>
-    <string name="back">Back to main</string>
 </resources>

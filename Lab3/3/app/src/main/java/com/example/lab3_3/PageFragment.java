@@ -41,7 +41,6 @@ public class PageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         View result = inflater.inflate(R.layout.fragment_page, container, false);
-        countries = getResources().getStringArray(R.array.countries);
         TextView textView = (TextView) result.findViewById(R.id.textView);
         ImageView imageView = (ImageView) result.findViewById(R.id.imageView);
         switch (pageNumber){
