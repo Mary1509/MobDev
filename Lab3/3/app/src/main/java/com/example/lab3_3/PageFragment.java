@@ -34,7 +34,7 @@ public class PageFragment extends Fragment {
         if (getArguments() != null){
             pageNumber = getArguments().getInt("num");
         }
-        else pageNumber = 1;
+        else pageNumber = 0;
     }
 
     @Override
@@ -48,14 +48,17 @@ public class PageFragment extends Fragment {
             case 0: {
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.flag_of_germany));
                 openText(result, R.raw.germany);
+                break;
             }
             case 1: {
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.flag_of_italy));
                 openText(result, R.raw.italy);
+                break;
             }
             case 2: {
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.flag_of_switzerland));
                 openText(result, R.raw.switzerland);
+                break;
             }
         }
 
