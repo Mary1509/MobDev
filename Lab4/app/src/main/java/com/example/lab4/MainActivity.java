@@ -35,29 +35,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public View.OnClickListener createOnClickListener(){
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in1 = new Intent();
-                switch (v.getId()){
-                    case (R.id.button1) : {
-                        in1.setClass(MainActivity.this, Task1.class);
-                        startActivity(in1);
-                    }
-                    case (R.id.button2) :
-                        // TODO render Activity 2
-                    case (R.id.button3) :
-                        // TODO render Activity 3
-                    case (R.id.button4) :
-                        // TODO render Activity 4
-                    case (R.id.button5) :
-                        // TODO render Activity 5
-                    case (R.id.button6) :
-                        // TODO render Activity 6
+        return v -> {
+            Intent in1 = new Intent();
+            switch (v.getId()) {
+                case (R.id.button1): {
+                    in1.setClass(MainActivity.this, Task1.class);
+                    startActivity(in1);
+                    break;
                 }
+                case (R.id.button2):
+                    in1.setClass(MainActivity.this, Task2.class);
+                    startActivity(in1);
+                    break;
+                case (R.id.button3):
+                    in1.setClass(MainActivity.this, Task3.class);
+                    startActivity(in1);
+                    break;
+                case (R.id.button4):
+                    // TODO render Activity 4
+                case (R.id.button5):
+                    // TODO render Activity 5
+                case (R.id.button6):
+                    // TODO render Activity 6
             }
         };
-        return  onClickListener;
     }
 
 
