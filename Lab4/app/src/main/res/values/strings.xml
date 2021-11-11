@@ -2,7 +2,7 @@
     <string name="app_name">lab4</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="orirginal_photo">Orirginal Photo</string>
+    <string name="original_photo">Orirginal Photo</string>
     <string name="resulted_photo">Resulted Photo</string>
     <string name="task1">Task 1</string>
     <string name="task2">Task 2</string>
@@ -15,4 +15,7 @@
     <string name="red">Red</string>
     <string name="green">Green</string>
     <string name="blue">Blue</string>
+    <string name="photo_1">Photo 1</string>
+    <string name="photo_2">Photo 2</string>
+    <string name="result">Result</string>
 </resources>

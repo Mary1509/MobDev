@@ -31,7 +31,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView1" />
+            app:layout_constraintTop_toBottomOf="@id/imageView1"
+            app:srcCompat="@drawable/photo1"/>
 
         <ImageView
             android:id="@+id/imageView3"
@@ -42,17 +43,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView2" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="409dp"
-            android:layout_height="360dp"
-            android:contentDescription="@string/resulted_photo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView3"
-            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
