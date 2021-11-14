@@ -68,8 +68,6 @@ public class Task4 extends AppCompatActivity implements SeekBar.OnSeekBarChangeL
         seekBar.setMin(0);
         seekBar.setMax(100);
 
-        change = findViewById(R.id.button);
-
         seekBar.setOnSeekBarChangeListener(this);
 
         result = findViewById(R.id.imageView3);
@@ -87,17 +85,6 @@ public class Task4 extends AppCompatActivity implements SeekBar.OnSeekBarChangeL
         a = seekBar.getProgress() / 100.0;
         changePhotos();
 
-
-
-
-        change.setOnClickListener(v -> {
-            a = 0;
-            while (a <= 100){
-                a += 10;
-                seekBar.setProgress((int)a);
-                SystemClock.sleep(1000);
-            }
-        });
 
     }
     @Override
