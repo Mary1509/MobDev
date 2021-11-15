@@ -25,7 +25,7 @@ public class Task5 extends AppCompatActivity {
 
     RadioGroup radioGroup;
 
-    Bitmap Convolution(int[][] filter, int div, int offset){
+    private Bitmap Convolution(int[][] filter, int div, int offset){
         Bitmap result_bitm = Bitmap.createBitmap(width, height, img_bit.getConfig());
         int A, R, G, B;
 //        int sumR, sumG, sumB;
@@ -136,7 +136,7 @@ public class Task5 extends AppCompatActivity {
         return result_bitm;
     }
 
-    void blurFilter(){
+    private void blurFilter(){
         int[][] filter = new int[][] {
                 { 1, 2, 1 },
                 { 2, 4, 2 },
@@ -150,7 +150,7 @@ public class Task5 extends AppCompatActivity {
         result.setImageBitmap(result_bit);
     }
 
-    void sharpFilter(){
+    private void sharpFilter(){
         int[][] filter = new int[][] {
                 { -1, -1, -1 },
                 { -1, 9, -1 },
@@ -164,7 +164,7 @@ public class Task5 extends AppCompatActivity {
         result.setImageBitmap(result_bit);
     }
 
-    void medianFilter(){
+    private void medianFilter(){
         int A, R, G, B;
         int SIZE = 3;
         int[] red_pixels = new int[SIZE*SIZE];
@@ -201,13 +201,13 @@ public class Task5 extends AppCompatActivity {
         result.setImageBitmap(result_bit);
     }
 
-    void erozFilter(){
+    private void erozFilter(){
     }
-    void buildFilter(){
+    private void buildFilter(){
 
     }
 
-    void sobelFilter(){
+    private void sobelFilter(){
         int A, R, G, B,
                 R_X, G_X, B_X,
                 R_Y, G_Y, B_Y;
@@ -260,12 +260,12 @@ public class Task5 extends AppCompatActivity {
 
         result = findViewById(R.id.imageView2);
         img_bit = BitmapFactory.decodeResource(getResources(),
-                R.drawable.photo6);
+                R.drawable.photo1);
         width = img_bit.getWidth();
         height = img_bit.getHeight();
         result_bit = Bitmap.createBitmap(width, height, img_bit.getConfig());
 
-        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId){
                 case R.id.radioButton6: blurFilter();

@@ -38,7 +38,7 @@ public class Task4 extends AppCompatActivity implements SeekBar.OnSeekBarChangeL
         }
     };
 
-    void changePhotos(){
+    private void changePhotos(){
         int pix1, pix2, newPix, alpha, red, green, blue;
         res_bit = Bitmap.createBitmap(width1, height1, Bitmap.Config.ARGB_8888);
         result.setImageBitmap(res_bit);

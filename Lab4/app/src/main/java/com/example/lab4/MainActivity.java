@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(in1);
                     break;
                 case (R.id.button6):
-                    // TODO render Activity 6
+                    in1.setClass(MainActivity.this, Task6.class);
+                    startActivity(in1);
             }
         };
     }
