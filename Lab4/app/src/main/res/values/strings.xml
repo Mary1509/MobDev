@@ -19,4 +19,10 @@
     <string name="photo_2">Photo 2</string>
     <string name="result">Result</string>
     <string name="change">Change</string>
+    <string name="blur">Blur</string>
+    <string name="sharp">Sharp</string>
+    <string name="median">Median</string>
+    <string name="eroz">Eroz</string>
+    <string name="build">Build</string>
+    <string name="sobel">Sobel</string>
 </resources>
