@@ -4,12 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/layout-land-v26/activity_task6.xml" value="0.1657848324514991" />
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout-land/activity_task1.xml" value="0.25" />
         <entry key="app/src/main/res/layout-land/activity_task2.xml" value="0.17768959435626103" />
         <entry key="app/src/main/res/layout-land/activity_task3.xml" value="0.33" />
         <entry key="app/src/main/res/layout-land/activity_task4.xml" value="0.24347826086956523" />
-        <entry key="app/src/main/res/layout-land/activity_task5.xml" value="0.2" />
+        <entry key="app/src/main/res/layout-land/activity_task5.xml" value="0.33" />
         <entry key="app/src/main/res/layout-land/activity_task6.xml" value="0.29894179894179895" />
         <entry key="app/src/main/res/layout-v26/activity_task6.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35885416666666664" />
@@ -17,7 +18,7 @@
         <entry key="app/src/main/res/layout/activity_task2.xml" value="0.20989583333333334" />
         <entry key="app/src/main/res/layout/activity_task3.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_task4.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_task5.xml" value="0.3115942028985507" />
+        <entry key="app/src/main/res/layout/activity_task5.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_task6.xml" value="0.353125" />
       </map>
     </option>

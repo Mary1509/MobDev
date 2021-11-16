@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="350dp"
-        android:layout_height="330dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/original_photo"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:srcCompat="@drawable/photo1" />
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:srcCompat="@drawable/photo100" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="350dp"
-        android:layout_height="330dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/resulted_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        app:layout_constraintVertical_bias="0.086" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_width="399dp"
+        android:layout_height="48dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/imageView1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="50dp"
-            android:text="Blur"
+            android:text="@string/blur"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/radioButton7"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +51,7 @@
             android:id="@+id/radioButton7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sharp"
+            android:text="@string/sharp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/radioButton8"
             app:layout_constraintStart_toEndOf="@+id/radioButton6"
@@ -64,7 +61,7 @@
             android:id="@+id/radioButton8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Median"
+            android:text="@string/median"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/radioButton10"
             app:layout_constraintStart_toEndOf="@+id/radioButton7"
@@ -94,10 +91,10 @@
             android:id="@+id/radioButton11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sobel"
+            android:text="@string/sobel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/radioButton9"
             app:layout_constraintTop_toTopOf="parent" />
     </RadioGroup>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

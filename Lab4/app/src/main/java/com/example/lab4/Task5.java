@@ -25,7 +25,7 @@ public class Task5 extends AppCompatActivity {
 
     RadioGroup radioGroup;
 
-    private Bitmap Convolution(int[][] filter, int div, int offset){
+    private Bitmap Convolution(int[][] filter, float div){
         Bitmap result_bitm = Bitmap.createBitmap(width, height, img_bit.getConfig());
         int A, R, G, B;
 //        int sumR, sumG, sumB;
@@ -117,7 +117,7 @@ public class Task5 extends AppCompatActivity {
                 }
                 A = Color.alpha(img_bit.getPixel(x+1, y+1));
 
-                int sumR=0, sumG=0, sumB=0;
+                float sumR=0, sumG=0, sumB=0;
                 for (int i = 0; i < 3; i ++){
                     for (int j = 0; j < 3; j++){
                         sumR += (Color.red(pixels[i][j])*filter[i][j]);
@@ -126,9 +126,9 @@ public class Task5 extends AppCompatActivity {
                     }
                 }
 
-                R = min(max((sumR / div + offset), 0), 255);
-                G = min(max((sumG / div + offset), 0), 255);
-                B = min(max((sumB / div + offset), 0), 255);
+                R = (int)min(max((sumR / div), 0), 255);
+                G = (int)min(max((sumG / div), 0), 255);
+                B = (int)min(max((sumB / div), 0), 255);
                 result_bitm.setPixel(x+1, y+1, Color.argb(A, R, G, B));
             }
 
@@ -143,10 +143,10 @@ public class Task5 extends AppCompatActivity {
                 { 1, 2, 1 }
         };
 
-        int div = 16;
+        float div = 16;
         int offset = 0;
 
-        result_bit = Convolution(filter, div, offset);
+        result_bit = Convolution(filter, div);
         result.setImageBitmap(result_bit);
     }
 
@@ -157,10 +157,10 @@ public class Task5 extends AppCompatActivity {
                 { -1, -1, -1 }
         };
 
-        int div = 1;
+        float div = 1;
         int offset = 0;
 
-        result_bit = Convolution(filter, div, offset);
+        result_bit = Convolution(filter, div);
         result.setImageBitmap(result_bit);
     }
 
@@ -280,8 +280,8 @@ public class Task5 extends AppCompatActivity {
         Bitmap res_X = Bitmap.createBitmap(width, height, img_bit.getConfig());
         Bitmap res_Y = Bitmap.createBitmap(width, height, img_bit.getConfig());
 
-        res_X = Convolution(filter_X, 1, 0);
-        res_Y = Convolution(filter_Y, 1, 0);
+        res_X = Convolution(filter_X, 1);
+        res_Y = Convolution(filter_Y, 1);
 
         for (int y = 0; y < height; y++ ){
             for (int x = 0; x < width; x ++){
@@ -315,7 +315,7 @@ public class Task5 extends AppCompatActivity {
 
         result = findViewById(R.id.imageView2);
         img_bit = BitmapFactory.decodeResource(getResources(),
-                R.drawable.photo1);
+                R.drawable.photo100);
         width = img_bit.getWidth();
         height = img_bit.getHeight();
         result_bit = Bitmap.createBitmap(width, height, img_bit.getConfig());
