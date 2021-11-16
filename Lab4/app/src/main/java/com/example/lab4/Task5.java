@@ -202,9 +202,64 @@ public class Task5 extends AppCompatActivity {
     }
 
     private void erozFilter(){
+        int [][] region = new int[3][3];
+        for(int y = 0; y < height - 3 + 1; y ++){
+            for (int x=0; x < width - 3 + 1; x ++){
+                int[] red_pixels = new int[3*3];
+                int[] green_pixels = new int[3*3];
+                int[] blue_pixels = new int[3*3];
+                int num = 0;
+                for (int i = 0; i < 3; i ++){
+                    for (int j = 0; j < 3; j++) {
+                        region[i][j] = img_bit.getPixel(x + i, y + j);
+                        red_pixels[num] = Color.red(region[i][j]);
+                        green_pixels[num] = Color.green(region[i][j]);
+                        blue_pixels[num] = Color.blue(region[i][j]);
+                        num++;
+                    }
+                }
+                Arrays.sort(red_pixels);
+                Arrays.sort(green_pixels);
+                Arrays.sort(blue_pixels);
+
+                result_bit.setPixel(x+1, y+1, Color.argb(255,
+                        red_pixels[red_pixels.length-1],
+                        green_pixels[green_pixels.length-1],
+                        blue_pixels[blue_pixels.length-1]));
+            }
+        }
+       result.setImageBitmap(result_bit);
+
     }
     private void buildFilter(){
+        int [][] region = new int[3][3];
+        for(int y = 0; y < height - 3 + 1; y ++){
+            for (int x=0; x < width - 3 + 1; x ++){
+                int[] red_pixels = new int[3*3];
+                int[] green_pixels = new int[3*3];
+                int[] blue_pixels = new int[3*3];
+                int num = 0;
+                for (int i = 0; i < 3; i ++){
+                    for (int j = 0; j < 3; j++) {
+                        region[i][j] = img_bit.getPixel(x + i, y + j);
+                        red_pixels[num] = Color.red(region[i][j]);
+                        green_pixels[num] = Color.green(region[i][j]);
+                        blue_pixels[num] = Color.blue(region[i][j]);
+                        num++;
+                    }
+                }
+                Arrays.sort(red_pixels);
+                Arrays.sort(green_pixels);
+                Arrays.sort(blue_pixels);
 
+                result_bit.setPixel(x+1, y+1, Color.argb(255,
+                        red_pixels[0],
+                        green_pixels[0],
+                        blue_pixels[0]));
+
+            }
+        }
+        result.setImageBitmap(result_bit);
     }
 
     private void sobelFilter(){

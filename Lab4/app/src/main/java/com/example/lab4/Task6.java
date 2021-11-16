@@ -75,8 +75,8 @@ public class Task6 extends AppCompatActivity {
             int R = Color.red(w_pixels[i]);
             int G = Color.green(w_pixels[i]);
             int B = Color.blue(w_pixels[i]);
-            int avg = (R + G + B);
-            if (avg >= 383) w_binary[i] = 1;
+            int avg = (R + G + B)/3;
+            if (avg >= 225) w_binary[i] = 1;
             else w_binary[i] = 0;
         }
 
