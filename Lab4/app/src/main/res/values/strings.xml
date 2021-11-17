@@ -26,4 +26,5 @@
     <string name="dilate">Dilate</string>
     <string name="eroz">Eroz</string>
     <string name="sobel">Sobel</string>
+    <string name="extract">Extract</string>
 </resources>

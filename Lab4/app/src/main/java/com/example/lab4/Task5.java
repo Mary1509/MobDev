@@ -25,101 +25,23 @@ public class Task5 extends AppCompatActivity {
 
     RadioGroup radioGroup;
 
-    private Bitmap Convolution(int[][] filter, float div){
+    private Bitmap Convolution(double[][] filter, float div, int SIZE){
         Bitmap result_bitm = Bitmap.createBitmap(width, height, img_bit.getConfig());
         int A, R, G, B;
-//        int sumR, sumG, sumB;
-        int[][] pixels = new int[3][3];
-//        for (int y = 0; y < height - 2; y++)
-//        {
-//            for (int x = 0; x < width - 2; x++)
-//            {
-//                pixels[0][0] = img_bit.getPixel(x, y);
-//                pixels[0][1] = img_bit.getPixel(x, y + 1);
-//                pixels[0][2] = img_bit.getPixel(x, y + 2);
-//                pixels[1][0] = img_bit.getPixel(x + 1, y);
-//                pixels[1][1] = img_bit.getPixel(x + 1, y + 1);
-//                pixels[1][2] = img_bit.getPixel(x + 1, y + 2);
-//                pixels[2][0] = img_bit.getPixel(x + 2, y);
-//                pixels[2][1] = img_bit.getPixel(x + 2, y + 1);
-//                pixels[2][2] = img_bit.getPixel(x + 2, y + 2);
-//
-//                A = Color.alpha(img_bit.getPixel(1, 1));
-//
-//                R = ((((Color.red(pixels[0][0])* filter[0][0]) +
-//                    (Color.red(pixels[1][0]) * filter[1][0]) +
-//                    (Color.red(pixels[2][0]) * filter[2][0]) +
-//                    (Color.red(pixels[0][1] )* filter[0][1]) +
-//                    (Color.red(pixels[1][1] )* filter[1][1]) +
-//                    (Color.red(pixels[2][1] )*filter[2][1]) +
-//                    (Color.red(pixels[0][2] )* filter[0][2]) +
-//                    (Color.red(pixels[1][2] )* filter[1][2]) +
-//                    (Color.red(pixels[2][2])* filter[2][2]))
-//                                / div) + offset);
-//
-//                if (R < 0)
-//                {
-//                    R = 0;
-//                }
-//                else if (R > 255)
-//                {
-//                    R = 255;
-//                }
-//
-//                G = ((((Color.green(pixels[0][0])* filter[0][0]) +
-//                        (Color.green(pixels[1][0]) * filter[1][0]) +
-//                        (Color.green(pixels[2][0]) * filter[2][0]) +
-//                        (Color.green(pixels[0][1] )* filter[0][1]) +
-//                        (Color.green(pixels[1][1] )* filter[1][1]) +
-//                        (Color.green(pixels[2][1] )*filter[2][1]) +
-//                        (Color.green(pixels[0][2] )* filter[0][2]) +
-//                        (Color.green(pixels[1][2] )* filter[1][2]) +
-//                        (Color.green(pixels[2][2])* filter[2][2]))
-//                        / div) + offset);
-//
-//                if (G < 0)
-//                {
-//                    G = 0;
-//                }
-//                else if (G > 255)
-//                {
-//                    G = 255;
-//                }
-//
-//                B = ((((Color.blue(pixels[0][0])* filter[0][0]) +
-//                        (Color.blue(pixels[1][0]) * filter[1][0]) +
-//                        (Color.blue(pixels[2][0]) * filter[2][0]) +
-//                        (Color.blue(pixels[0][1] )* filter[0][1]) +
-//                        (Color.blue(pixels[1][1] )* filter[1][1]) +
-//                        (Color.blue(pixels[2][1] )*filter[2][1]) +
-//                        (Color.blue(pixels[0][2] )* filter[0][2]) +
-//                        (Color.blue(pixels[1][2] )* filter[1][2]) +
-//                        (Color.blue(pixels[2][2])* filter[2][2]))
-//                        / div) + offset);
-//
-//                if (B < 0)
-//                {
-//                    B = 0;
-//                }
-//                else if (B > 255)
-//                {
-//                    B = 255;
-//                }
-//                result_bitm.setPixel(x + 1, y + 1, Color.argb(A, R, G, B));
-//            }
-//        }
-        for (int y = 0; y < height- 3 + 1; y ++){
-            for(int x = 0; x < width- 3 + 1; x ++){
-                for (int i = 0; i < 3; i ++){
-                    for (int j = 0; j < 3; j++) {
+        int[][] pixels = new int[SIZE][SIZE];
+
+        for (int y = 0; y < height- SIZE + 1; y ++){
+            for(int x = 0; x < width- SIZE + 1; x ++){
+                for (int i = 0; i < SIZE; i ++){
+                    for (int j = 0; j < SIZE; j++) {
                         pixels[i][j] = img_bit.getPixel(x + i, y + j);
                     }
                 }
-                A = Color.alpha(img_bit.getPixel(x+1, y+1));
+                A = Color.alpha(img_bit.getPixel(x+SIZE-2, y+SIZE-2));
 
                 float sumR=0, sumG=0, sumB=0;
-                for (int i = 0; i < 3; i ++){
-                    for (int j = 0; j < 3; j++){
+                for (int i = 0; i < SIZE; i ++){
+                    for (int j = 0; j < SIZE; j++){
                         sumR += (Color.red(pixels[i][j])*filter[i][j]);
                         sumG += (Color.green(pixels[i][j])*filter[i][j]);
                         sumB += (Color.blue(pixels[i][j])*filter[i][j]);
@@ -129,7 +51,8 @@ public class Task5 extends AppCompatActivity {
                 R = (int)min(max((sumR / div), 0), 255);
                 G = (int)min(max((sumG / div), 0), 255);
                 B = (int)min(max((sumB / div), 0), 255);
-                result_bitm.setPixel(x+1, y+1, Color.argb(A, R, G, B));
+
+                result_bitm.setPixel(x+SIZE-2, y+SIZE-2, Color.argb(A, R, G, B));
             }
 
         }
@@ -137,30 +60,30 @@ public class Task5 extends AppCompatActivity {
     }
 
     private void blurFilter(){
-        int[][] filter = new int[][] {
-                { 1, 2, 1 },
-                { 2, 4, 2 },
-                { 1, 2, 1 }
+        double[][] filter = new double[][] {
+                { 0.000789, 0.006581, 0.013347, 0.006581, 0.000789 },
+                { 0.006581, 0.054901, 0.111345, 0.054901, 0.006581 },
+                { 0.013347, 0.111345, 0.225821, 0.111345, 0.013347 },
+                { 0.006581, 0.054901, 0.111345, 0.054901, 0.006581 },
+                { 0.000789, 0.006581, 0.013347, 0.006581, 0.000789 }
         };
 
-        float div = 16;
-        int offset = 0;
+        float div = 1;
 
-        result_bit = Convolution(filter, div);
+        result_bit = Convolution(filter, div, 5);
         result.setImageBitmap(result_bit);
     }
 
     private void sharpFilter(){
-        int[][] filter = new int[][] {
+        double[][] filter = new double[][] {
                 { -1, -1, -1 },
                 { -1, 9, -1 },
                 { -1, -1, -1 }
         };
 
         float div = 1;
-        int offset = 0;
 
-        result_bit = Convolution(filter, div);
+        result_bit = Convolution(filter, div, 3);
         result.setImageBitmap(result_bit);
     }
 
@@ -266,12 +189,12 @@ public class Task5 extends AppCompatActivity {
         int A, R, G, B,
                 R_X, G_X, B_X,
                 R_Y, G_Y, B_Y;
-        int[][] filter_Y = new int[][] {
+        double[][] filter_Y = new double[][] {
                 { -1, -2, -1 },
                 { 0, 0, 0 },
                 { 1, 2, 1 }
         };
-        int[][] filter_X = new int[][] {
+        double[][] filter_X = new double[][] {
                 { -1, 0, 1 },
                 { -2, 0, 2 },
                 { -1, 0, 1 }
@@ -280,8 +203,8 @@ public class Task5 extends AppCompatActivity {
         Bitmap res_X = Bitmap.createBitmap(width, height, img_bit.getConfig());
         Bitmap res_Y = Bitmap.createBitmap(width, height, img_bit.getConfig());
 
-        res_X = Convolution(filter_X, 1);
-        res_Y = Convolution(filter_Y, 1);
+        res_X = Convolution(filter_X, 1, 3);
+        res_Y = Convolution(filter_Y, 1, 3);
 
         for (int y = 0; y < height; y++ ){
             for (int x = 0; x < width; x ++){
