@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lab5_1</string>
+    <string name="example_1">Example 1</string>
+    <string name="choose_example">Choose example:</string>
+</resources>
