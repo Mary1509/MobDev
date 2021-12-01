@@ -14,24 +14,29 @@ public class MyView extends View {
     Paint paint = new Paint();
 
     int radius = 500;
-
+    int speed = 200;
+    boolean flag = false;
     double alpha = 0;
     int a = 300;
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-
         int centerX = getWidth() /2;
         int centerY = getHeight() /2;
 
 
-        alpha += Math.PI / 200;
+        if (speed == 20) flag = true;
+        if (speed == 200) flag = false;
+        alpha += Math.PI / speed;
         if (alpha > 2 * Math.PI){
             alpha -= 2 * Math.PI;
+            if (!flag) speed -= 20;
+            else speed += 20;
+
         }
 
         int centerRectX = (int)(centerX + radius * Math.cos(alpha));
-        int centerRectY = (int)(centerY - radius * Math.sin(alpha));
+        int centerRectY = (int)(centerY + radius * Math.sin(alpha));
         paint.setColor(Color.BLUE);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
