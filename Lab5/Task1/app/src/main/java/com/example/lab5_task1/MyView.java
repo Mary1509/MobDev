@@ -28,17 +28,22 @@ public class MyView extends View {
 
         int y = (int)(k*x);
 
-        int a = 100;
+        int a = 300;
 
-
+        int centerRectX = centerX + radius;
+        int centerRectY = centerY;
 
 
         paint.setColor(Color.BLUE);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
-        canvas.drawPoint(x, y, paint);
-        canvas.drawRect(centerX+radius-a, centerY-radius+a, centerX+radius+a, centerY-radius-a, paint);
+
+        canvas.drawRect(centerRectX - a/2, centerRectY - a/2, centerRectX + a/2, centerRectY+a/2, paint);
         canvas.drawCircle(centerX, centerY, radius, paint);
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(30);
+        canvas.drawPoint(centerRectX, centerRectY, paint);
     }
 
 }
