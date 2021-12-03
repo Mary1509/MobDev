@@ -11,14 +11,13 @@ public class Serpinsky extends View {
         super(context);
     }
 
-    int k = 10;
+    int k = 100;
 
     private void serp (int x, int y, int a, Canvas canvas, Paint paint){
         canvas.drawRect(x-a/2, y-a/2, x+a/2, y+a/2, paint);
     }
 
     private int printSquares(int xi, int yi, int width, int height, int currentDeep, Canvas canvas, Paint paint) {
-        //Quadrado central
         int newWidth = width / 3;
         int newHeight = height / 3;
         int x = (width / 3) + xi;
@@ -50,38 +49,12 @@ public class Serpinsky extends View {
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
         Paint paint = new Paint();
-        paint.setColor(Color.GREEN);
+        paint.setColor(Color.GRAY);
         paint.setStrokeWidth(20);
         canvas.drawRect(0, 0, getWidth(), getWidth(), paint);
 
         paint.setColor(Color.WHITE);
-//        int x0=0; int y0=0;
-//        int width = getWidth();
-//        int centerX = x0 + width/2;
-//        int centerY = y0 + width/2;
-//        int a = width/3;
-//        canvas.drawRect(centerX-a/2, centerY-a/2, centerX+a/2, centerY+a/2, paint);
-//        for (int i=0; i < 3; i++){
-//            for (int j = 0; j < 3; j++){
-//                int centerX1 = 2*centerX/6+i*a;
-//                int centerY1 = 2*centerY/6+j*a;
-//                while (k > 0){
-//                    a=a/3;
-//                    for (int m = 1; m<6; m+=2){
-//                        for (int n=1; n<6; n+=2){
-//                            if (m==3 && n == 3) continue;
-//                            serp(m*centerX1, n*centerY1, a, canvas, paint);
-//                        }
-//                    }
-//                    centerX1 = 2*centerX1/6;
-//                    centerY1 = 2*centerY1/6;
-//                    k--;
-//                }
-//            k=10;
-//                a=width/3;
-//        }
 
-//        }
         int  n = printSquares(0, 0, getWidth(), getWidth(), 5, canvas, paint);
 
 
