@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Task2</string>
+    <string name="original_photo" />
+    <string name="resulted_photo" />
+    <string name="photo_1">Underwater</string>
+    <string name="photo_2">Submarine</string>
+    <string name="result">We all live in a yellow submarine</string>
+</resources>
