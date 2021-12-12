@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">lab3</string>
+    <string name="app_name">lab3_5</string>
     <string name="label1">Type in to search</string>
     <string name="label2">History</string>
     <string name="btn_search">Search</string>
