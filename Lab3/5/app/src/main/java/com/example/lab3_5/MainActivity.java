@@ -55,31 +55,58 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        // NEW //
         prev.setOnClickListener(v -> {
-            if (iterator.hasNext()){
-                String prevText = iterator.next();
-                browser.loadUrl(prevText);
-                searchUrl = prevText;
+            if (browser.canGoBack()){
+                browser.goBack();
             }
-            else {
+            else{
                 Toast.makeText(getApplicationContext(),
                         "You are viewing the first page!",
                         Toast.LENGTH_LONG).show();
             }
         });
 
-        next.setOnClickListener(v -> {
-            if (iterator.hasPrevious()){
-                String nextText = iterator.previous();
-                browser.loadUrl(nextText);
-                searchUrl = nextText;
+        next.setOnClickListener(v->{
+            if (browser.canGoForward()){
+                browser.goForward();
             }
-            else {
+            else{
                 Toast.makeText(getApplicationContext(),
                         "You are viewing the last page!",
                         Toast.LENGTH_LONG).show();
             }
         });
+
+
+/* OLD
+//        prev.setOnClickListener(v -> {
+//            if (iterator.hasNext()){
+//                String prevText = iterator.next();
+//                browser.loadUrl(prevText);
+//                searchUrl = prevText;
+//            }
+//            else {
+//                Toast.makeText(getApplicationContext(),
+//                        "You are viewing the first page!",
+//                        Toast.LENGTH_LONG).show();
+//            }
+//        });
+//
+//        next.setOnClickListener(v -> {
+//            if (iterator.hasPrevious()){
+//                String nextText = iterator.previous();
+//                browser.loadUrl(nextText);
+//                searchUrl = nextText;
+//            }
+//            else {
+//                Toast.makeText(getApplicationContext(),
+//                        "You are viewing the last page!",
+//                        Toast.LENGTH_LONG).show();
+//            }
+//        });
+ */
+
 
 
 
